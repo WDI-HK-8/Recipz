@@ -47,3 +47,16 @@ p {
 	height: 50px;
 	border: 0;
 }
+
+.input-group {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.btn {
+	height: 33.9915px;
+}
+
+.btn-primary, .btn-info, .btn-danger {
+	margin-bottom: 5px;
+}
