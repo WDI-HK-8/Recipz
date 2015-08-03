@@ -26,20 +26,19 @@
 			</div>
 		</nav>
 		<div class="container col-xs-12 text-center">
+			<h1>Find recipes!</h1>
 			<h3>Find delicious recipes by search!</h3>
 		</div>
-		<nav class="navbar navbar-default navbar-fixed-bottom">
-		  <div class="container-fluid">
-		    <a class="navbar-brand" href="#">
-	        	<img alt="Facebook" src="http://www.dal.ca/content/dam/dalhousie/images/law/Alumni/Reunions/law_alumni_reunion_fb.png">
-	      	</a>
-			<a class="navbar-brand" href="#">
-	        	<img alt="LinkedIn" src="https://www.ashoka.org/sites/www.ashoka.org/files/linkedin_logo-25x25.png">
-	      	</a>
-			<a class="navbar-brand" href="#">
-	        	<img alt="Twitter" src="http://hsff2015.com/Content/Images/TwitterLogo25x25.png">
-	      	</a>		  
-		  </div>
-		</nav>
+		<div class="container selector col-sm-offset-2 col-sm-8 col-xs-12 text-center">
+			<div class="col-xs-12 input-group" id="ingredient1">
+			  <span class="input-group-addon" id="basic-addon1">Search</span>
+			  <input type="text" class="form-control" placeholder="Type in your search terms separated by commas" aria-describedby="basic-addon1">
+			  <span class="input-group-btn">
+		        <button class="btn btn-default" type="button">Enter</button>
+		      </span>
+			</div>
+		</div>
+		<div id="recipes" class="container col-sm-offset-2 col-sm-8 col-xs-12 text-center">
+		</div>
 	</body>
 </html>
