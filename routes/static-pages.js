@@ -30,6 +30,13 @@ exports.register = function(server, options, next){
     },
     {
       method: 'GET',
+      path: '/signPage',
+      handler: function(request, reply){
+        return reply.view("signPage");
+      }
+    },
+    {
+      method: 'GET',
       path: '/public/{path*}',
       // /public/application.js
       // /public/custom.css

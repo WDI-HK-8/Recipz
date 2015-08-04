@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Recipz Sign-In Page</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+		<script type="text/javascript" src = "../public/signPage.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+		<link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+
+		<link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href = "../public/custom.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">
+			        	<img alt="Recipz" src="http://i.imgur.com/BtGbezO.png" height="50">
+			      	</a>
+				</div>
+			</div>
+		</nav>
+		<div class="text-center">
+			<h1>User Sign-In Page</h1>
+		</div>
+		<div id="signSheet" class="container selector col-sm-4 col-sm-offset-4 col-xs-offset-2 col-xs-8 text-center">
+			<div id="signUp">
+				<h2>Sign Up</h2>
+				<input class = "col-xs-12" type="text" id="signUpEmail" placeholder="Email">
+				<input class = "col-xs-12" type="text" id="signUpName" placeholder="Name">
+				<input class = "col-xs-12" type="text" id="signUpUsername" placeholder="Username">
+				<input class = "col-xs-12" type="password" id="signUpPassword" placeholder="Password">
+				<button class="btn btn-success col-xs-12" type="button" id="signUpSubmit">Sign Up</button>
+			</div>
+			<div id="signIn">
+				<h2>Sign In</h2>
+				<input class = "col-xs-12" type="text" id="signInUsername" placeholder="Username">
+				<input class = "col-xs-12" type="password" id="signInPassword" placeholder="Password">
+				<button class="btn btn-primary col-xs-12" type="button" id="signInSubmit">Sign In</button>
+			</div>
+		</div>
+	</body>
+</html>

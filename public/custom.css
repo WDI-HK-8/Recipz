@@ -1,25 +1,29 @@
 .img-responsive {
-    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 body {
 	background: url('https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/10/106/106396/keih4mm9pyv3kpq8scymlnub2aecxzs9iscdane82nvbmfcc3leqqh7pjk0adoki-o.jpg?1399222056');
+	background: transparent\9; 
 	margin: 0;
 	font-family: "Cabin", sans-serif;
 }
 
 h3 {
-	margin-bottom: 25px;
+	margin-bottom: 55px;
+}
+
+h1, h2 {
+	font-family: "Lobster", sans-serif;
 }
 
 h1 {
-	font-family: "Molengo", sans-serif;
 	font-size: 50px;
 	color: #E91E63;
 }
 
-h2, h3, h4, h5, h6 {
-	font-family: "Lobster", cursive;
+h3, h4, h5, h6 {
+	font-family: "Molengo", cursive;
 }
 
 .selector {
@@ -29,8 +33,9 @@ h2, h3, h4, h5, h6 {
 	border-radius: 15px;
 }
 
-p {
+h4 {
 	color: white;
+	font-size: 20px;
 }
 
 .navbar {
@@ -60,10 +65,30 @@ p {
 }
 
 .btn-primary, .btn-info, .btn-danger, .btn-success {
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 }
 
 #name {
 	margin-bottom: 5px;
 	background-color: #F7F7B5;
+}
+
+#signInSubmit, #signUpSubmit {
+	margin-bottom: 25px;
+}
+
+#recipePic {
+	margin-bottom: 15px;
+}
+
+#ingredients {
+	margin-top: 15px;
+}
+
+li a {
+	font-size: 20px;
+}
+
+.submitButton {
+	padding-bottom: 20px;
 }

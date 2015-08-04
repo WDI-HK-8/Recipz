@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	console.log(window.location);
+
 	var ingredientCounter = 1;
 	var ingredientClass = "ingredient"+ingredientCounter;
 
@@ -18,5 +20,23 @@ $(document).ready(function(){
 			ingredientCounter--;
 			ingredientClass = "ingredient"+ingredientCounter;
 		}
+	})
+
+	$('#submitIngredients').click(function(){
+		var ingredients = [];
+		for (var i = 1; i <= ingredientCounter; i++){
+			var ingredient = $("#ingredient"+i+" input").val();
+			ingredients.push(ingredient);
+		}
+		$.ajax({
+			type: 'GET',
+			url: '/recipes',
+			success: function(response){
+				console.log(response)
+			},
+			error: function(response){
+				console.log("There was an error inputting the ingredients.");
+			}
+		})
 	})
 })
