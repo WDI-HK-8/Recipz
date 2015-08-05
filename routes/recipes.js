@@ -65,6 +65,24 @@ exports.register = function(server, options, next){
           reply(ing);
         })
       }
+    },
+    {
+      method: 'GET',
+      path: '/recipes/search/',
+      handler: function(request, reply) {
+        var search=request.query.search;
+        findSearch = '"';
+        findSearch += (search.replace(',', '" "'));
+        findSearch += '"';
+        
+        var db = request.server.plugins['hapi-mongodb'].db;
+
+        db.collection('recipes').find({ $text: { $search: findSearch } }).toArray(function(err, ing){
+          if (err) {return reply("Internal MongoDB error", err);}
+          
+          reply(ing);
+        })
+      }
     }
   ]);
 	next(); // DO NOT FORGET THIS
