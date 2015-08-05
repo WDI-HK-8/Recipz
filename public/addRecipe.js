@@ -7,7 +7,7 @@ $(document).ready(function(){
 	$('#recipePic .btn').click(function(){
 		$('#finalPic').remove();
 		picURL = $('#recipePic input').val();
-		html = "<img class='img-responsive center-block' id='finalPic' src='"+picURL+"'>"
+		html = "<img class='img-responsive center-block' id='finalPic' src='"+picURL+"'>";
 		$('#namePic').append(html);
 	})
 
@@ -72,10 +72,20 @@ $(document).ready(function(){
 				}
 			},
 			success: function(response){
-				console.log("success!")
+				alert("Success! You uploaded your recipe!")
 			},
 			error: function(response){
-				console.log("There was an error inputting the recipe.");
+				alert("There was an error inputting the recipe.");
+			}
+		})
+	})
+
+	$('#logout').on('click', function(){
+		$.ajax({
+			type: "DELETE",
+			url: "/sessions",
+			success: function(response){
+				console.log(response);
 			}
 		})
 	})

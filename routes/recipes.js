@@ -40,11 +40,29 @@ exports.register = function(server, options, next){
       path: '/recipes',
       handler: function(request, reply) {
         var db = request.server.plugins['hapi-mongodb'].db;
-        //db.users.find() also works
+
         db.collection('recipes').find().toArray(function(err, recipes){
           if (err) {return reply("Internal MongoDB error", err);}
           
           reply(recipes);
+        })
+      }
+    },
+    {
+      method: 'GET',
+      path: '/recipes/search/ingredients',
+      handler: function(request, reply) {
+        var ingredients=request.query.ingredients;
+        findIngredients = '"';
+        findIngredients += (ingredients.replace(',', '" "'));
+        findIngredients += '"';
+        
+        var db = request.server.plugins['hapi-mongodb'].db;
+
+        db.collection('recipes').find({ $text: { $search: findIngredients } }).toArray(function(err, ing){
+          if (err) {return reply("Internal MongoDB error", err);}
+          
+          reply(ing);
         })
       }
     }

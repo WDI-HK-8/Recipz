@@ -85,10 +85,6 @@ h4 {
 	margin-top: 15px;
 }
 
-li a {
-	font-size: 20px;
-}
-
-.submitButton {
-	padding-bottom: 20px;
+.submitButton, #recipes {
+	padding-bottom: 50px;
 }

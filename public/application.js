@@ -10,4 +10,14 @@ $(document).ready(function(){
 	$('#findRecipes').on('click', function(){
 		window.location.href="findRecipe"
 	})
+
+	$('#logout').on('click', function(){
+		$.ajax({
+			type: "DELETE",
+			url: "/sessions",
+			success: function(response){
+				console.log(response);
+			}
+		})
+	})
 })
