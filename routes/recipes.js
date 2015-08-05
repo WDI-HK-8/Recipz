@@ -1,5 +1,6 @@
 var Bcrypt = require('bcrypt');
 var Joi = require('joi');
+var Auth = require('./auth.js')
 
 // Defining the plugin
 exports.register = function(server, options, next){
@@ -11,14 +12,20 @@ exports.register = function(server, options, next){
 
       config: {
         handler: function(request, reply) {
-          var db = request.server.plugins['hapi-mongodb'].db;
-          var recipe = request.payload.recipe;
+          Auth.authenticated(request, function(result){
+            if (result.authenticated) {
+              var db = request.server.plugins['hapi-mongodb'].db;
+              var recipe = request.payload.recipe;
 
-          // inserting a user document into DB
-          db.collection('recipes').insert(recipe,function(err,writeResult){
-            if (err) {return reply("Internal MongoDB error", err);}
+              // inserting a user document into DB
+              db.collection('recipes').insert(recipe,function(err,writeResult){
+                if (err) {return reply("Internal MongoDB error", err);}
 
-            reply(writeResult);
+                reply(writeResult);
+              })
+            } else {
+              reply(result.msg);
+            }
           })
         },
         validate: {
@@ -71,9 +78,7 @@ exports.register = function(server, options, next){
       path: '/recipes/search/',
       handler: function(request, reply) {
         var search=request.query.search;
-        findSearch = '"';
-        findSearch += (search.replace(',', '" "'));
-        findSearch += '"';
+        findSearch = (search.replace(',', ' '));
         
         var db = request.server.plugins['hapi-mongodb'].db;
 

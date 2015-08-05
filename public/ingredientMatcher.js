@@ -3,36 +3,41 @@ $(document).ready(function(){
 		type: 'GET',
 		url: '/recipes/search/ingredients'+window.location.search,
 		success: function(response){
-			for (var i = 0; i < response.length; i++){
+			response.forEach(function(elem,i) {
 				html = '<div class="container selector col-xs-12 text-center">';
 				html += '	<div id="namePic" class="col-xs-12">';
-				html += '		<h1>'+response[i].name+'</h1>';
+				html += '		<h1>'+elem.name+'</h1>';
 				html += '		<div id="recipePic" class="col-xs-12">'
-				html += '			<img class="img-responsive center-block" src="'+response[i].picture+'">';
+				html += '			<img class="img-responsive center-block" src="'+elem.picture+'">';
 				html += '		</div>';
-			    html += '	</div>';
-		    	html += '	<div class="col-xs-12">';
+			  html += '	</div>';
+		   	html += '	<div class="col-xs-12">';
 				html += '		<h4>Time</h4>';
 				html += '		<div id="prepTime">';
-				html += '  			<p>Prep Time: '+response[i].preptime+'</p>';
-				html += '			<p>Cooking Time:'+response[i].cookingtime+'</p>';
+				html += '  		<p>Prep Time: '   + elem.preptime    + '</p>';
+				html += '			<p>Cooking Time: '+ elem.cookingtime + '</p>';
 				html += '		</div>'
 				html += '		<div id="ingredients">';
 				html += '			<h4>Ingredients</h4>';
-				for (j = 0; j < response[i].ingredients.length; j++){
-					html += '<p>'+response[i].ingredients[j]+'<p>';
-				}
+
+				elem.ingredients.forEach(function(ingredient, j) {
+					html += '		<p>'+ingredient+'<p>';
+				});
+
 				html += '		</div>';
 				html += '		<div id="dir">';
 				html += '			<h4>Cooking Directions</h4>';
-				for (k = 0; k < response[i].directions.length; k++){
-					html += '<p>'+[k+1]+'. '+response[i].directions[k]+'<p>';
-				}
+
+				elem.directions.forEach(function(direction, k){
+					html += '		<p>' + [k + 1] + '. ' + direction + '<p>';
+				})
+
 				html += '		</div>';
 				html += '	</div>';
 				html += '</div>';
 				$('#recipes').append(html);
-			}
+				
+			})
 		},
 		error: function(response){
 			console.log("There was an error inputting the ingredients.");
