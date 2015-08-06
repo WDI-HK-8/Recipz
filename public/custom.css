@@ -42,6 +42,7 @@ h3, h4, h5, h6 {
 	margin-bottom: 10px;
 	color: #212121;
 	border-radius: 15px;
+
 }
 
 h4 {
@@ -64,10 +65,6 @@ h4 {
 
 .navbar-header .navbar-brand {
 	padding: 5px;
-}
-
-.navbar-nav a {
-	color: white;
 }
 
 .navbar-fixed-bottom {
