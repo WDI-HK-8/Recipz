@@ -6,7 +6,12 @@ exports.register = function(server, options, next){
       method: 'GET',
       path: '/',
       handler: function(request, reply){
-        return reply.view("index");
+        Auth.authenticated(request, function(result){
+          if (!result.authenticated) {
+            return reply.view("signPage");
+          }
+          return reply.view("index");
+        });
       }
     },
     {
@@ -55,13 +60,6 @@ exports.register = function(server, options, next){
           }
           return reply.view("findTerms");
         });
-      }
-    },
-    {
-      method: 'GET',
-      path: '/signPage',
-      handler: function(request, reply){
-        return reply.view("signPage");
       }
     },
     {

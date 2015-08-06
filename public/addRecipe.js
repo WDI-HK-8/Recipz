@@ -72,7 +72,8 @@ $(document).ready(function(){
 				}
 			},
 			success: function(response){
-				alert("Success! You uploaded your recipe!")
+				alert("Success! You uploaded your recipe!");
+				window.location.href = "/";
 			},
 			error: function(response){
 				alert("There was an error inputting the recipe.");

@@ -31,7 +31,7 @@ $(document).ready(function(){
 			})
 		},
 		error: function(response){
-			console.log("There was an error inputting the ingredients.");
+			alert("There was an error inputting the ingredients.");
 		}
 	})
 
