@@ -23,6 +23,27 @@ $(document).ready(function(){
         console.log(response);
         alert("Congratulations! User created!");
         window.location.href = "/";
+        $.ajax({
+          type: 'POST',
+          url: '/sessions',
+          data: {
+            user: {
+              username: username.val(),
+              password: password.val()
+            }
+          },
+          dataType: 'json',
+          success: function(response){
+            if(response.userExist === false){
+              alert("Record not found. Please sign up.")
+            } else if (response.authorized === false){
+              alert("Credentials not correct, please check again")
+            } else {
+              alert('Login successful!')
+              window.location.href = '/';
+            }
+          }
+        })
       }
     });
   });
