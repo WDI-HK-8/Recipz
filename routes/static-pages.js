@@ -1,3 +1,5 @@
+var Auth = require('./auth.js')
+
 exports.register = function(server, options, next){
 	server.route([
     {
@@ -11,7 +13,12 @@ exports.register = function(server, options, next){
       method: 'GET',
       path: '/addRecipe',
       handler: function(request, reply){
-        return reply.view("addRecipe");
+        Auth.authenticated(request, function(result){
+          if (!result.authenticated) {
+            return reply("You are not authorized.");
+          }
+          return reply.view("addRecipe");
+        });
       }
     },
     {

@@ -36,7 +36,6 @@ $(document).ready(function(){
 				html += '	</div>';
 				html += '</div>';
 				$('#recipes').append(html);
-				
 			})
 		},
 		error: function(response){

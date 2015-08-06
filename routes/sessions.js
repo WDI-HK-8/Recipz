@@ -64,13 +64,13 @@ exports.register = function(server, options, next){
         var db = request.server.plugins['hapi-mongodb'].db;
 
         if (!cookie) {
-          reply ({"message": "Already logged out!"})
+          reply ("Already logged out!")
         }
 
         db.collection('sessions').remove({session_id: cookie.session_id}, function(err, writeResult){
           if(err) {return reply("Internal MongoDB error", err);}
 
-          reply(writeResult);
+          reply("Logout successful!");
         })
         
       }

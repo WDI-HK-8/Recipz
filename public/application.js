@@ -16,7 +16,7 @@ $(document).ready(function(){
 			type: "DELETE",
 			url: "/sessions",
 			success: function(response){
-				console.log(response);
+				alert(response);
 			}
 		})
 	})

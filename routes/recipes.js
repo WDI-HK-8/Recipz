@@ -78,11 +78,10 @@ exports.register = function(server, options, next){
       path: '/recipes/search/',
       handler: function(request, reply) {
         var search=request.query.search;
-        findSearch = (search.replace(',', ' '));
         
         var db = request.server.plugins['hapi-mongodb'].db;
 
-        db.collection('recipes').find({ $text: { $search: findSearch } }).toArray(function(err, ing){
+        db.getCollection('recipes').find({$or: [{name: {$regex: new RegExp(search,"i")}},{ingredients: {$regex: new RegExp(search,"i") } }, {directions: {$regex: new RegExp(search,"i") } }, {preptime: {$regex: new RegExp(search,"i") } }, {cookingtime: {$regex: new RegExp(search,"i") } }, ] }).toArray(function(err, ing){
           if (err) {return reply("Internal MongoDB error", err);}
           
           reply(ing);
