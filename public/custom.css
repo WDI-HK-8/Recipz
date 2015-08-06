@@ -19,7 +19,7 @@ h1, h2 {
 
 h1 {
 	font-size: 50px;
-	color: #E91E63;
+	color: rgb(136, 56, 45);
 }
 
 h3, h4, h5, h6 {
@@ -33,13 +33,31 @@ h3, h4, h5, h6 {
 	border-radius: 15px;
 }
 
+.selector a {
+	font-size: 20px;
+}
+
+.finalselector {
+	background-color: rgba(249, 227, 203,0.7);
+	margin-bottom: 10px;
+	color: #212121;
+	border-radius: 15px;
+}
+
 h4 {
 	color: white;
 	font-size: 20px;
 }
 
+.finalselector h4 {
+	color: black;
+	font-weight: bold;
+	margin-top: 40px;
+	text-decoration: underline;
+}
+
 .navbar {
-	background: rgba(207,216,220,0.9);
+	background: rgba(214, 163, 84,0.9);
 	height: 60px;
 	border: 0;
 }
@@ -48,8 +66,12 @@ h4 {
 	padding: 5px;
 }
 
+.navbar-nav a {
+	color: white;
+}
+
 .navbar-fixed-bottom {
-	background: rgba(69,90,100,0.9);
+	background: rgba(214, 163, 84,0.9);
 	height: 50px;
 	border: 0;
 	margin-top: 50px;
@@ -73,6 +95,10 @@ h4 {
 	background-color: #F7F7B5;
 }
 
+#signSheet{
+	margin-top: 25px;
+}
+
 #signInSubmit, #signUpSubmit {
 	margin-bottom: 25px;
 }
@@ -85,6 +111,27 @@ h4 {
 	margin-top: 15px;
 }
 
+.noauth {
+	padding-top: 65px;
+}
+
 .submitButton, #recipes {
 	padding-bottom: 50px;
+}
+
+.finalRecipe {
+	text-align: left;
+}
+
+.finalRecipe h4 {
+	font-size: 30px;
+}
+
+.finalRecipe p {
+	font-size: 20px;
+}
+
+a:hover {
+	color: yellow;
+	text-decoration: none;
 }

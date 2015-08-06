@@ -15,7 +15,7 @@ exports.register = function(server, options, next){
       handler: function(request, reply){
         Auth.authenticated(request, function(result){
           if (!result.authenticated) {
-            return reply("You are not authorized.");
+            return reply.view("notauthorized");
           }
           return reply.view("addRecipe");
         });
@@ -25,14 +25,36 @@ exports.register = function(server, options, next){
       method: 'GET',
       path: '/findRecipe',
       handler: function(request, reply){
-        return reply.view("findRecipe");
+        Auth.authenticated(request, function(result){
+          if (!result.authenticated) {
+            return reply.view("notauthorized");
+          }
+          return reply.view("findRecipe");
+        });
       }
     },
     {
       method: 'GET',
       path: '/ingredientMatcher',
       handler: function(request, reply){
-        return reply.view("ingredientMatcher");
+        Auth.authenticated(request, function(result){
+          if (!result.authenticated) {
+            return reply.view("notauthorized");
+          }
+          return reply.view("ingredientMatcher");
+        });
+      }
+    },
+    {
+      method: 'GET',
+      path: '/findTerms',
+      handler: function(request, reply){
+        Auth.authenticated(request, function(result){
+          if (!result.authenticated) {
+            return reply.view("notauthorized");
+          }
+          return reply.view("findTerms");
+        });
       }
     },
     {
@@ -40,6 +62,18 @@ exports.register = function(server, options, next){
       path: '/signPage',
       handler: function(request, reply){
         return reply.view("signPage");
+      }
+    },
+    {
+      method: 'GET',
+      path: '/darecipe',
+      handler: function(request, reply){
+        Auth.authenticated(request, function(result){
+          if (!result.authenticated) {
+            return reply.view("notauthorized");
+          }
+          return reply.view("darecipe");
+        });
       }
     },
     {

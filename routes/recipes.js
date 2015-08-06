@@ -75,13 +75,29 @@ exports.register = function(server, options, next){
     },
     {
       method: 'GET',
-      path: '/recipes/search/',
+      path: '/recipes/search',
       handler: function(request, reply) {
         var search=request.query.search;
         
         var db = request.server.plugins['hapi-mongodb'].db;
 
-        db.getCollection('recipes').find({$or: [{name: {$regex: new RegExp(search,"i")}},{ingredients: {$regex: new RegExp(search,"i") } }, {directions: {$regex: new RegExp(search,"i") } }, {preptime: {$regex: new RegExp(search,"i") } }, {cookingtime: {$regex: new RegExp(search,"i") } }, ] }).toArray(function(err, ing){
+        db.collection('recipes').find({$or: [{name: {$regex: new RegExp(search,"i")}},{ingredients: {$regex: new RegExp(search,"i") } }, {directions: {$regex: new RegExp(search,"i") } }, {preptime: {$regex: new RegExp(search,"i") } }, {cookingtime: {$regex: new RegExp(search,"i") } }, ] }).toArray(function(err, ing){
+          if (err) {return reply("Internal MongoDB error", err);}
+          
+          reply(ing);
+        })
+      }
+    },
+    {
+      method: 'GET',
+      path: '/recipe/search',
+      handler: function(request, reply) {
+        var search=request.query.search;
+        
+        var db = request.server.plugins['hapi-mongodb'].db;
+        var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
+
+        db.collection('recipes').find({_id: new ObjectID(search)}).toArray(function(err, ing){
           if (err) {return reply("Internal MongoDB error", err);}
           
           reply(ing);

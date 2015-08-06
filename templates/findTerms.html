@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Recipz Sign-In Page</title>
+		<title>Find Recipes</title>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-		<script type="text/javascript" src = "../public/signPage.js"></script>
+		<script type="text/javascript" src = "../public/findTerms.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -14,7 +14,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
 
 		<link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
-		
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 		<link rel="stylesheet" type="text/css" href = "../public/custom.css">
@@ -27,26 +27,26 @@
 			      <img alt="Recipz" src="http://i.imgur.com/BtGbezO.png" height="50">
 			    </a>
 				</div>
+				<ul class="nav navbar-nav navbar-right">
+				  <li><a href="signPage"><i class="fa fa-sign-in fa-2x"></i></a></li>
+				  <li id="logout"><a href="/"><i class="fa fa-sign-out fa-2x"></i></a></li>
+				</ul>
 			</div>
 		</nav>
-		<div class="text-center">
-			<h1>User Sign-In Page</h1>
+		<div class="container col-xs-12 text-center">
+			<h1>Find recipes!</h1>
+			<h3>Find delicious recipes by search!</h3>
 		</div>
-		<div id="signSheet" class="container selector col-sm-4 col-sm-offset-4 col-xs-offset-2 col-xs-8 text-center">
-			<div id="signUp">
-				<h2>Sign Up</h2>
-				<input class = "col-xs-12" type="text" id="signUpEmail" placeholder="Email">
-				<input class = "col-xs-12" type="text" id="signUpName" placeholder="Name">
-				<input class = "col-xs-12" type="text" id="signUpUsername" placeholder="Username">
-				<input class = "col-xs-12" type="password" id="signUpPassword" placeholder="Password">
-				<button class="btn btn-success col-xs-12" type="button" id="signUpSubmit">Sign Up</button>
+		<div class="container selector col-sm-offset-2 col-sm-8 col-xs-12 text-center">
+			<div class="col-xs-12 input-group">
+			  <span class="input-group-addon" id="basic-addon1">Search</span>
+			  <input type="text" id="searchterms" class="form-control" placeholder="Type in your search term" aria-describedby="basic-addon1">
+			  <span class="input-group-btn">
+		      <button class="btn btn-default" id="submitTerms" type="button">Enter</button>
+		    </span>
 			</div>
-			<div id="signIn">
-				<h2>Sign In</h2>
-				<input class = "col-xs-12" type="text" id="signInUsername" placeholder="Username">
-				<input class = "col-xs-12" type="password" id="signInPassword" placeholder="Password">
-				<button class="btn btn-primary col-xs-12" type="button" id="signInSubmit">Sign In</button>
-			</div>
+		</div>
+		<div id="recipes" class="container col-sm-offset-2 col-sm-8 col-xs-12 text-center">
 		</div>
 		<nav class="navbar navbar-default navbar-fixed-bottom">
 		  <div class="container-fluid">
